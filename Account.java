@@ -31,9 +31,12 @@ public class Account {
 		if(amount<=0) {
 			throw new InvalidDepositException("Can not deposite amount less than zero ");
 		}
-		if(amount%50 == 0) {
+		if(amount%50 != 0) {
 			throw new AmountSouldBeMultipleOfFiftyException("Deposited amount should be multiple of 50");
 		}
+		balance += amount;
+		System.out.println("Deposited successfull: " +amount);
+		System.out.println("Balance amount: "+balance);
 		
 	}
 	
@@ -47,3 +50,4 @@ public class Account {
 	
 
 }
+
