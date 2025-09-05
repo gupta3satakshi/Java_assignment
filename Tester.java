@@ -1,22 +1,28 @@
-package Assignment2;
+package Assignment3;
+
+import java.util.Scanner;
 
 public class Tester {
-	
 
 	public static void main(String[] args) {
-			Product[]prodarr ={new Product (222, "chips", 20.0),
-								 new Product (333, "biscuit", 50.0),
-								 new Product (444, "lollipop", 30.0)};
-			
-			Store store = new Store (prodarr);
-			store.displayProducts();
-			int searchid = 222;
-			int index=store.searchProduct(searchid);
-			if(index!=-1) {
-				System.out.println("Product with ID" + searchid +"Found at Index" + index);
-			}
-			else
-				System.out.println("Product Not Found");
+		
+		Savings sa= new Savings(101, "Alice",15000);
+		sa.display();
+		sa.deposit(500);
+		sa.withdrawal(11000);
+		System.out.println();
+		
+		Current ca= new Current (201, "Bob",80000);
+		ca.display();
+		ca.deposit(100);
+		ca.withdrawal(600000);
+		ca.withdrawal(40000);
+		ca.withdrawal(50000);
+		
+		
+		
+		
+
 	}
 
 }

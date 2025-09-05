@@ -1,53 +1,31 @@
-package Assignment5;
+package Assignment3;
 
-public class Account {
-	
-	protected int accno;
+public abstract class Account {
+	protected int acc_no;
 	protected String name;
 	protected double balance;
-	
-	public Account(int accno, String name, double balance) {
-		this.accno = accno;
+	public Account(int acc_no, String name, double balance) {
+		
+		this.acc_no = acc_no;
 		this.name = name;
 		this.balance = balance;
 	}
+	public abstract void withdrawal(double amount);
 	
+	public abstract void deposit(double amount);
 	
-	
-	
-	public void withdraw(double amount) throws InvalidWithdrawException, InsufficientBalanceException {
-		if(amount<=0) {
-			throw new InvalidWithdrawException("Can not withdraw amount less than zero.");
+	public void transaction(Account acc1, double amount) {
+		if(this.balance >= amount) {
+			this.balance = this.balance - amount;
+			acc1.balance = acc1.balance + amount;
+			System.out.println("Transaction successfull "+amount+ "transfered from accountno" + this.acc_no + "to accountno" + acc1 );
 		}
-		if(amount> balance) {
-			throw new InsufficientBalanceException("Your account balance has no sufficient balance to withdraw");
+		else {
+			System.out.println("Transaction failed");
 		}
-		balance -= amount;
-		System.out.println("Withdrawn successfull: " +amount);
-		System.out.println("Balance ramaining: "+balance);
 	}
-	
-	public void deposit(double amount)throws InvalidDepositException, AmountSouldBeMultipleOfFiftyException {
-		if(amount<=0) {
-			throw new InvalidDepositException("Can not deposite amount less than zero ");
-		}
-		if(amount%50 != 0) {
-			throw new AmountSouldBeMultipleOfFiftyException("Deposited amount should be multiple of 50");
-		}
-		balance += amount;
-		System.out.println("Deposited successfull: " +amount);
-		System.out.println("Balance amount: "+balance);
-		
+	public void display() {
+		System.out.println("Accountno: " +acc_no +"  Name: " +name+ "  Balance: Rs." +balance ) ;
 	}
-	
-	
-	
-	public void displayAccount() {
-		System.out.println("Account_no=" + accno + ", name=" + name + ", balance=" + balance);
-	}
-	
-	
-	
 
 }
-
