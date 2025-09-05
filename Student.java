@@ -1,40 +1,72 @@
-package Assignment2;
+package Assignment10;
 
+import java.time.LocalDate;
 
 public class Student {
-	private int rollNo;
+	private String Prn;
 	private String name;
-	private double [] marks;
-		
-	public Student(int rollNo,String name, double[] marks){
-		this.rollNo = rollNo;
+	private int age;
+	private Course course;
+	private LocalDate enrollmentDate;
+	private double gpa;
+	private String city;
+	
+	public Student(String prn, String name, int age, String course, LocalDate enrollmentDate, double gpa, String city) {
+		super();
+		Prn = prn;
 		this.name = name;
-		this.marks = marks;
+		this.age = age;
+		this.course = Course.valueOf(course);
+		this.enrollmentDate = enrollmentDate;
+		this.gpa = gpa;
+		this.city = city;
 	}
 	
-	public double calculateAverage() {
-		double sum=0;
-		for(double m: marks) {
-			sum += m;
-		}
-		return(sum/marks.length);
+	
+	public String getPrn() {
+		return Prn;
 	}
-	public double calculatePercentage() {
-		double sum=0;
-		for (double m:marks) {
-			sum+=m;
-		}
-		double total = marks.length*100;
-		return ((sum*100)/total);
+	public void setPrn(String prn) {
+		Prn = prn;
 	}
-	public void studentDisplayinfo() {
-		System.out.println("Enter Name: "+name);
-		System.out.println("Rollno: "+rollNo);
-		System.out.println("Average: " +calculateAverage());
-		System.out.println("Percentage"+calculatePercentage()+"%");
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getCourse() {
+		return course.name();
+	}
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+	public LocalDate getEnrollmentDate() {
+		return enrollmentDate;
+	}
+	public void setEnrollmentDeate(LocalDate enrollmentDate) {
+		this.enrollmentDate = enrollmentDate;
+	}
+	public double getGpa() {
+		return gpa;
+	}
+	public void setGpa(double gpa) {
+		this.gpa = gpa;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
-
-	}
-
-
+	
+	
+	
+}

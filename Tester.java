@@ -1,53 +1,31 @@
-package Assignment6;
-
+package Assignment10;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.Scanner;
+
+
 
 public class Tester {
 
 	public static void main(String[] args) {
+				
+		try(Scanner sc = new Scanner (System.in)){
+			
+			for(Course c: Course.values()) {
+				System.out.println(c.getDescription());
+		}
+		List<Student> students = new ArrayList<>();
+		} catch(Exception e) {
+			 e.printStackTrace();
+		}
 		
-		System.out.println("-----------------------List the Stock---------------------------");
-		List<Toy> stock = Store.createToyLists();
-		Store.printList(stock);
-		
-		System.out.println("-----------------------fiterByCategory---------------------------");
-		
-		List<Toy> bycategory = Store.filterByCategory(stock, "Machine Operated");
-		Store.printList(bycategory);
-		
-		System.out.println("-----------------------binarySearchByProductId---------------------------");
-		
-		Toy index = Store.binarySearchByProductId(stock, 2);
-		System.out.println(index);
-		
-		System.out.println("-----------------------fiterByPriceRange---------------------------");
-		List<Toy> byprice = Store.filterByPriceRange(stock, 300, 1000);
-		Store.printList(byprice);
-		
-		System.out.println("-----------------------fiterByAge---------------------------");
-		List<Toy> byage = Store.filterByAge(stock, 10);
-		Store.printList(byage);
-		
-		System.out.println("-----------------------Sort by Price---------------------------");
-		List<Toy> sortedByPrice = Store.sortByPrice(stock);
-		Store.printList(sortedByPrice);
+//		students.add(new Student("1000", "Mg Mg",20 , "DAI", LocalDate.of(2025, 8, 21),6.0,"Pune"));
+//		students.add(new Student("1001", "Aye Aye",24 , "DAC", LocalDate.of(2025, 8, 22),6.0,"Pune"));
+//		students.add(new Student("1002", "Aye Aye",24 , "DAC", LocalDate.of(2025, 8, 22),5.0,"New Dehli"));
+//		students.add(new Student("1003", "Ajay",24 , "DBDA", LocalDate.of(2025, 4, 22),6.0,"Mumbi"));
+//		students.add(new Student("1004", "Amem",24 , "DAC", LocalDate.of(2025, 8, 27),6.0,"Pune"));
+//		
+	}
 
-		System.out.println("-----------------------Sort by Name---------------------------");
-		List<Toy> sortedByName = Store.sortByName(stock);
-		Store.printList(sortedByName);
-
-		System.out.println("-----------------------Sort by Product ID---------------------------");
-		List<Toy> sortedByProdId = Store.sortByProdid(stock);
-		Store.printList(sortedByProdId);
-		
-		System.out.println("-----------------------oldStockList---------------------------");
-		List<Toy> oldstocklist = Store.listOldStock(stock);
-		Store.printList(oldstocklist);
-		
-		System.out.println("-----------------------groupedby---------------------------");
-		Map<String, List<Toy>> groupedByList = Store.groupByCategory(stock);
-		Store.printGroupedList(groupedByList);
-
-}
 }
